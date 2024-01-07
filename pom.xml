@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.6</version> 
+        <version>3.1.6</version> 
         <relativePath/>
     </parent>
     <groupId>ndhtest</groupId>
@@ -14,9 +14,9 @@
     <properties>
         <java.version>17</java.version>
         <groovy.version>4.0.5</groovy.version>
-        <springboot.version>3.0.6</springboot.version>
-        <lombok.version>1.18.22</lombok.version>
-        <spock.version>2.3-groovy-4.0</spock.version>
+        <springboot.version>3.1.6</springboot.version>
+        <lombok.version>1.18.30</lombok.version>
+        <spock.version>2.4-M1-groovy-4.0</spock.version>
     </properties>
     <dependencies>
         <dependency>
