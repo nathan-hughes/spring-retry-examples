@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.spockframework.spring.SpringBean
 import spock.lang.Subject
 
-@SpringBootTest(classes = [MyRetryableService, RandomNumberService])
+@SpringBootTest 
 class IntegrationTestSpec extends Specification {
 
     @SpringBean
@@ -22,6 +22,19 @@ class IntegrationTestSpec extends Specification {
 
         when:
         int result = myRetryableService.doStuff('hello')
+
+        then:
+        result == 1
+    }
+
+    def "test one retry"() {
+        given:
+        int count = 0
+        def numbers = [2, 1]
+        randomNumberService.randomNumber() >> { numbers[count++] }
+
+        when:
+        int result = myRetryableService.doStuff('hello again')
 
         then:
         result == 1
