@@ -39,4 +39,15 @@ class IntegrationTestSpec extends Specification {
         then:
         result == 1
     }
+
+    def "check that nonrecoverable exception is not caught"() {
+        given:
+        randomNumberService.randomNumber() >> { throw new NullPointerException() }
+
+        when:
+        int result = myRetryableService.doStuff('npe test')
+
+        then:
+        thrown(NullPointerException)
+    }
 }
