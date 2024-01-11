@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.spockframework.spring.SpringBean
 import spock.lang.Subject
 
+// the classes attrib on this annotation was causing the problem
+// @SpringBootTest(classes = [MyRetryableService, RandomNumberService])
 @SpringBootTest 
 class IntegrationTestSpec extends Specification {
 
