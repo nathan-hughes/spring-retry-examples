@@ -30,7 +30,9 @@ public class MyRetryableService {
     public int doStuff(String s) {
 
         log.info("doing stuff with {}, try = {}", s, RetrySynchronizationManager.getContext().getRetryCount() + 1);
-        int i = randomNumberService.randomNumber();
+
+        final int i = randomNumberService.randomNumber();
+        log.info("random number service returned {}", i);
 
         // simulate having something bad happen that is recoverable
         if (i % 2 == 0) {
